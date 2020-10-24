@@ -139,7 +139,16 @@ namespace SntsepomexContributionLoader
                 LocalReport localReport = reportViewer1.LocalReport;
                 localReport.ReportPath = "EstadoDeCuenta.rdlc";
 
+                /* nuevo codigo para ordenar*/
+                //List<Contribution> contribOrderedList = searchEmployee.Contributions.ToList();
+                //contribOrderedList.Sort((p, q) => p.Year.CompareTo(q.Year));
+
+                //DataTable testDT = ContribHelpers.ToDataTable<Contribution>(contribOrderedList);
+                /* termina nuevo codigo*/
+
+                /* original */
                 DataTable testDT = ContribHelpers.ToDataTable<Contribution>(searchEmployee.Contributions.ToList());
+                /*Termina original*/
 
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("ContributionDataSet", testDT));
